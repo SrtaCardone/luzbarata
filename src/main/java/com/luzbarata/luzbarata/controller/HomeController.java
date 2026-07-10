@@ -20,12 +20,23 @@ public HomeController(SubscriberRepository subscriberRepository) {
         return "index";
     }
 
-    @PostMapping("/suscribirse")
-    public String suscribirse(@RequestParam String email, Model model) {
-        Subscriber subscriber = new Subscriber(email);
-        subscriberRepository.save(subscriber);
-        model.addAttribute("email", email);
+@PostMapping("/suscribirse")
+public String suscribirse(@RequestParam String email, Model model) {
 
+    String emailNormalizado = email.trim().toLowerCase();
+
+    if (subscriberRepository.existsByEmail(emailNormalizado)) {
+        model.addAttribute("email", emailNormalizado);
+        model.addAttribute("mensaje", "Este email ya estaba suscrito.");
         return "confirmacion";
     }
+
+    Subscriber subscriber = new Subscriber(emailNormalizado);
+    subscriberRepository.save(subscriber);
+
+    model.addAttribute("email", emailNormalizado);
+    model.addAttribute("mensaje", "Suscripción realizada correctamente.");
+
+    return "confirmacion";
+}
 }
