@@ -1,156 +1,193 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuzBarata</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #1f2937;
-        }
+```
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        color: #1f2937;
+    }
 
-        .container {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-        }
+    .container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+    }
 
+    .card {
+        width: 100%;
+        max-width: 620px;
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        text-align: center;
+    }
+
+    .badge {
+        display: inline-block;
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    h1 {
+        font-size: 42px;
+        margin: 0 0 16px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        color: #4b5563;
+        margin-bottom: 32px;
+    }
+
+    form {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    input {
+        flex: 1;
+        padding: 14px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 12px;
+        font-size: 16px;
+    }
+
+    input.input-error {
+        border-color: #dc2626;
+    }
+
+    button {
+        padding: 14px 20px;
+        border: none;
+        border-radius: 12px;
+        background: #2563eb;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1d4ed8;
+    }
+
+    .validation-error {
+        margin: 0 0 24px;
+        color: #dc2626;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .feature {
+        background: #f9fafb;
+        border-radius: 14px;
+        padding: 16px;
+        font-size: 14px;
+        color: #374151;
+    }
+
+    .footer {
+        margin-top: 28px;
+        font-size: 13px;
+        color: #6b7280;
+    }
+
+    @media (max-width: 650px) {
         .card {
-            width: 100%;
-            max-width: 620px;
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 8px 14px;
-            border-radius: 999px;
-            font-size: 14px;
-            margin-bottom: 18px;
+            padding: 28px 22px;
         }
 
         h1 {
-            font-size: 42px;
-            margin: 0 0 16px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: #4b5563;
-            margin-bottom: 32px;
+            font-size: 34px;
         }
 
         form {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        input {
-            flex: 1;
-            padding: 14px 16px;
-            border: 1px solid #d1d5db;
-            border-radius: 12px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 14px 20px;
-            border: none;
-            border-radius: 12px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #1d4ed8;
+            flex-direction: column;
         }
 
         .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-            margin-top: 28px;
+            grid-template-columns: 1fr;
         }
+    }
+</style>
+```
 
-        .feature {
-            background: #f9fafb;
-            border-radius: 14px;
-            padding: 16px;
-            font-size: 14px;
-            color: #374151;
-        }
-
-        .footer {
-            margin-top: 28px;
-            font-size: 13px;
-            color: #6b7280;
-        }
-
-        @media (max-width: 650px) {
-            .card {
-                padding: 28px 22px;
-            }
-
-            h1 {
-                font-size: 34px;
-            }
-
-            form {
-                flex-direction: column;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
 <div class="container">
     <main class="card">
 
-        <div class="badge">⚡ Proyecto en desarrollo con Java + Spring Boot</div>
+```
+    <div class="badge">
+        ⚡ Proyecto en desarrollo con Java + Spring Boot
+    </div>
 
-        <h1>LuzBarata</h1>
+    <h1>LuzBarata</h1>
 
-        <p class="subtitle">
-            Recibe cada día un aviso con la hora más barata de la electricidad
-            y programa tus electrodomésticos en el mejor momento.
-        </p>
+    <p class="subtitle">
+        Recibe cada día un aviso con la hora más barata de la electricidad
+        y programa tus electrodomésticos en el mejor momento.
+    </p>
 
-        <form action="/suscribirse" method="post">
-            <input type="email" name="email" placeholder="tu@email.com" required>
-            <button type="submit">Suscribirme</button>
-        </form>
+    <form th:action="@{/suscribirse}"
+          th:object="${subscriberRequest}"
+          method="post">
 
-        <div class="features">
-            <div class="feature">📩 Alerta diaria por email</div>
-            <div class="feature">⏰ Recordatorio antes de la hora barata</div>
-            <div class="feature">🔌 Datos basados en PVPC</div>
-        </div>
+        <input type="email"
+               th:field="*{email}"
+               th:classappend="${#fields.hasErrors('email')} ? 'input-error'"
+               placeholder="tu@email.com">
 
-        <p class="footer">
-            Versión Java de un MVP funcional desarrollado inicialmente en Google Apps Script.
-        </p>
+        <button type="submit">
+            Suscribirme
+        </button>
+    </form>
 
-    </main>
+    <p class="validation-error"
+       th:if="${#fields.hasErrors('email')}"
+       th:errors="*{email}">
+    </p>
+
+    <div class="features">
+        <div class="feature">📩 Alerta diaria por email</div>
+        <div class="feature">⏰ Recordatorio antes de la hora barata</div>
+        <div class="feature">🔌 Datos basados en PVPC</div>
+    </div>
+
+    <p class="footer">
+        Versión Java de un MVP funcional desarrollado inicialmente en Google Apps Script.
+    </p>
+
+</main>
+```
+
 </div>
 
 </body>
