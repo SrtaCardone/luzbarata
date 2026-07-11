@@ -1,12 +1,22 @@
 # ⚡ LuzBarata
 
-LuzBarata es una aplicación web desarrollada con **Java y Spring Boot** cuyo objetivo es ayudar a los usuarios a ahorrar en la factura de la electricidad mostrando las horas más económicas del día y permitiendo recibir alertas por correo electrónico.
-
-Este proyecto constituye mi **principal proyecto de portfolio** mientras finalizo el ciclo de Desarrollo de Aplicaciones Web (DAW). Su objetivo no es únicamente ofrecer una funcionalidad útil, sino servir como proyecto de aprendizaje para aplicar buenas prácticas de desarrollo backend con Java y Spring Boot.
+> 🚧 **Estado:** Proyecto en desarrollo.
+>
+> LuzBarata está evolucionando progresivamente como mi principal proyecto de portfolio. Su objetivo es ayudar a los usuarios a ahorrar en la factura de la electricidad y, al mismo tiempo, servirme para profundizar en el desarrollo backend con Java y Spring Boot aplicando buenas prácticas de arquitectura y desarrollo.
 
 ---
 
-# 🚀 Estado del proyecto
+## 📖 Descripción
+
+LuzBarata es una aplicación web desarrollada con **Java y Spring Boot** cuyo objetivo es ayudar a los usuarios a conocer las horas más económicas del precio de la electricidad y recibir alertas para aprovecharlas.
+
+Este proyecto nace a partir de una primera versión funcional desarrollada con **Google Apps Script**, que actualmente estoy reconstruyendo desde cero con una arquitectura profesional basada en Spring Boot como parte de mi formación en **Desarrollo de Aplicaciones Web (DAW)**.
+
+Mi objetivo no es únicamente desarrollar una aplicación útil, sino construir un proyecto que refleje mi forma de trabajar y mi evolución como desarrolladora Java.
+
+---
+
+# 🚀 Estado actual
 
 Actualmente la aplicación permite:
 
@@ -17,8 +27,6 @@ Actualmente la aplicación permite:
 - ✅ Validación mediante DTO y Jakarta Validation.
 - ✅ Prevención de emails duplicados.
 - ✅ Confirmación de suscripción.
-
-El proyecto continúa en desarrollo y seguirá creciendo durante los próximos meses.
 
 ---
 
@@ -41,7 +49,7 @@ El proyecto continúa en desarrollo y seguirá creciendo durante los próximos m
 
 Actualmente el proyecto sigue una arquitectura en capas:
 
-```
+```text
 src
 └── main
     ├── java
@@ -58,13 +66,31 @@ src
         └── application.properties
 ```
 
-### Responsabilidades
+## Responsabilidades
 
-- **Controller** → recibe las peticiones HTTP.
-- **DTO** → valida los datos recibidos desde los formularios.
-- **Service** → contiene la lógica de negocio.
-- **Repository** → acceso a la base de datos mediante Spring Data JPA.
-- **Entity** → representación de las tablas de la base de datos.
+**Controller**
+
+- Recibe las peticiones HTTP.
+- Se comunica con la vista.
+- Delega la lógica de negocio al servicio.
+
+**DTO**
+
+- Representa los datos recibidos desde los formularios.
+- Aplica las validaciones mediante Jakarta Validation.
+
+**Service**
+
+- Contiene la lógica de negocio.
+- Coordina el acceso a los datos.
+
+**Repository**
+
+- Acceso a la base de datos mediante Spring Data JPA.
+
+**Entity**
+
+- Representa el modelo persistente almacenado en MySQL.
 
 ---
 
@@ -74,7 +100,7 @@ Actualmente la aplicación utiliza **MySQL** para almacenar los suscriptores.
 
 La conexión se configura desde:
 
-```
+```text
 src/main/resources/application.properties
 ```
 
@@ -93,7 +119,7 @@ spring.datasource.password=*****
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/TU_USUARIO/luzbarata.git
+git clone https://github.com/SrtaCardone/luzbarata.git
 ```
 
 Entrar en el proyecto:
@@ -110,26 +136,35 @@ Ejecutar:
 
 La aplicación estará disponible en:
 
-```
+```text
 http://localhost:8080
 ```
 
 ---
 
-# 🧩 Próximas funcionalidades
+# 🗺️ Roadmap
 
-Estas son algunas de las funcionalidades previstas:
+## Funcionalidades implementadas
 
-- Consulta automática de precios desde la API oficial de ESIOS.
-- Mostrar precio actual.
-- Mostrar la hora más barata y la más cara del día.
-- Envío diario de alertas por correo.
-- Recordatorio antes de la hora más barata.
-- Panel de administración.
-- Estadísticas de suscriptores.
-- Pruebas unitarias e integración.
-- Spring Security.
-- Despliegue en Azure.
+- [x] Landing page
+- [x] Persistencia con MySQL
+- [x] Arquitectura Controller → Service → Repository
+- [x] Validación mediante DTO
+- [x] Validación de emails duplicados
+
+## Próximas funcionalidades
+
+- [ ] Integración con la API oficial de ESIOS.
+- [ ] Mostrar el precio actual de la electricidad.
+- [ ] Mostrar la hora más barata y la más cara del día.
+- [ ] Envío diario de alertas por correo.
+- [ ] Recordatorio antes de la hora más barata.
+- [ ] Panel de administración.
+- [ ] Estadísticas.
+- [ ] Pruebas unitarias.
+- [ ] Pruebas de integración.
+- [ ] Spring Security.
+- [ ] Despliegue en Azure.
 
 ---
 
@@ -138,14 +173,13 @@ Estas son algunas de las funcionalidades previstas:
 Con este proyecto estoy profundizando en:
 
 - Arquitectura en capas.
-- Spring Boot.
+- Desarrollo backend con Spring Boot.
 - Spring MVC.
-- Persistencia con Spring Data JPA.
-- Hibernate.
+- Persistencia con Spring Data JPA e Hibernate.
 - Validación con Jakarta Validation.
-- Buenas prácticas de desarrollo backend.
-- Git y GitHub.
+- Buenas prácticas de desarrollo.
 - Testing.
+- Git y GitHub.
 - Despliegue de aplicaciones Java.
 
 ---
