@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrecioServiceTest {
 
@@ -43,5 +44,29 @@ void encontrarHoraMasCaraDevuelveElPrecioMaximo() {
 
     assertEquals(15, resultado.getHora());
     assertEquals(0, resultado.getPrecio().compareTo(new BigDecimal("0.25")));
+}
+@Test
+void encontrarHoraMasBarataLanzaExcepcionSiLaListaEstaVacia() {
+
+    PrecioService servicio = new PrecioService();
+
+    List<PrecioHora> precios = List.of();
+
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> servicio.encontrarHoraMasBarata(precios)
+    );
+}
+@Test
+void encontrarHoraMasCaraLanzaExcepcionSiLaListaEstaVacia() {
+
+    PrecioService servicio = new PrecioService();
+
+    List<PrecioHora> precios = List.of();
+
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> servicio.encontrarHoraMasCara(precios)
+    );
 }
 }
