@@ -10,6 +10,7 @@ public class EsiosProperties {
     private String baseUrl;
     private int indicatorId;
     private int geoId;
+    private String token;
 
     public String getBaseUrl() {
         return baseUrl;
@@ -34,4 +35,11 @@ public class EsiosProperties {
     public void setGeoId(int geoId) {
         this.geoId = geoId;
     }
+    public String getToken() {
+    return token;
+}
+
+public void setToken(String token) {
+    this.token = token;
+}
 }
